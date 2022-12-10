@@ -34,7 +34,10 @@
 26. Volume Control  
 
 ## Modules Requirements and Installation:  
+```
+  pip install -r requirements.txt
   
+```
 
 ## ***⚠ NOTE: This project is currently supported on Windows OS only***
 
@@ -214,17 +217,4 @@ pyaudio not installing
 (USE PYTHON <= 3.8 WHICH SUPPORTS ALL THE LIBRARIES)
 Raise an Issue ticket if you have any other problems  <br><br><br>
 
-## Only Chatbot
-If you want only Chatbot and no face recognition then, download it from here:  
-https://drive.google.com/file/d/1h-v6Ub5E2BMy6LTgl398lmoTlhr0KWvj/view?usp=sharing
-
-
-## Authors
-
- **roshan9419** 🧐 
-
-See also the list of [contributors](https://github.com/roshan9419/PersonalAssistantChatbot/graphs/contributors) who have participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+Made with ❤️ & Team ![Archit Chawda](https://github.com/archit27-uo) and ![Satyam Jain](https://github.com/satyam298)
