@@ -169,7 +169,7 @@ def raise_frame(frame):
 
 
 root = Tk()
-root.title('F.R.I.D.A.Y.')
+root.title('Virtual assistance')
 w_width, w_height = 350, 600
 s_width, s_height = root.winfo_screenwidth(), root.winfo_screenheight()
 x, y = (s_width/2)-(w_width/2), (s_height/2)-(w_height/2)

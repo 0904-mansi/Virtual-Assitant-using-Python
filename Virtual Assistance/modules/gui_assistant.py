@@ -26,6 +26,8 @@ ass_voiceRate = 200 #normal voice rate
 ####################################### IMPORTING MODULES ###########################################
 """ User Created Modules """
 try:
+	#from goto import goto, label
+	
 	import normal_chat
 	import math_function
 	import app_control
@@ -202,6 +204,7 @@ def speak(text, display=False, icon=False):
 		print("Try not to type more...")
 
 ####################################### SET UP SPEECH TO TEXT #######################################
+
 def record(clearChat=True, iconDisplay=True):
 	print('\nListening...')
 	AITaskStatusLbl['text'] = 'Listening...'
@@ -229,6 +232,7 @@ def record(clearChat=True, iconDisplay=True):
 	return said.lower()
 
 def voiceMedium():
+	
 	while True:
 		query = record()
 		if query == 'None': continue
@@ -265,6 +269,13 @@ def main(text):
 				projectName = record(False, False)
 				speak(file_handler.CreateHTMLProject(projectName.capitalize()), True)
 				return
+
+		if data2.get(text) == None:
+			print("Not Present")
+		else:
+			print("Present")
+			keyboard.send(data2[text])
+			speak("Executing it", True, True)
 
 		if "create" in text and "file" in text:
 			speak(file_handler.createFile(text), True, True)
@@ -459,7 +470,7 @@ def main(text):
 			clearChatScreen()
 			return
 
-		if isContain(text, ['open','type','save','delete','select','press enter']):
+		if isContain(text, ['type','save','delete','select','press enter']):
 			app_control.System_Opt(text)
 			return
 
@@ -528,21 +539,16 @@ def main(text):
 			return
 		
 		result = normal_chat.reply(text)
-		if data2.get(text) == None:
-			print("Not Present")
-		else:
-			print("Present")
-			keyboard.send(data2[text])
-			speak("Executing it", True, True)
-		if result != "None": speak(result, True, True)
-		else:
-			speak("I don't know anything about this. Do you want to search it on web?", True, True)
-			response = record(False, True)
-			if isContain(response, ["no","don't"]):
-				speak("Ok "+ownerDesignation, True)
-			else:
-				speak("Here's what I found on the web... ", True, True)
-				web_scrapping.googleSearch(text)
+
+		# if result != "None": speak(result, True, True)
+		# else:
+		# 	speak("I don't know anything about this. Do you want to search it on web?", True, True)
+		# 	response = record(False, True)
+		# 	if isContain(response, ["no","don't"]):
+		# 		speak("Ok "+ownerDesignation, True)
+		# 	else:
+		# 		speak("Here's what I found on the web... ", True, True)
+		# 		web_scrapping.googleSearch(text)
 		
 
 ##################################### DELETE USER ACCOUNT #########################################
@@ -913,12 +919,16 @@ if __name__ == '__main__':
 	
 	ArcBtn = Button(settingsFrame, text='   Add Phrase   ', bd=0, font=('Arial 12'), fg='white', bg='#14A769', relief=FLAT)
 	clearFaceBtn = Button(settingsFrame, text='   Clear Facial Data   ', bd=0, font=('Arial 12'), fg='white', bg='#14A769', relief=FLAT)
+	#reloadButton = Button(settingsFrame, text='   reload   ', bd=0, font=('Arial 12'), fg='white', bg='#14A769', relief=FLAT)
 	backBtn.place(x=5, y=220)
-	clearFaceBtn.place(x=120, y=220)
+	clearFaceBtn.place(x=170, y=220)
 
 
 	############################################## PHRASE AND KEY FEATURE ###########################################################
-	ArcBtn.place(x=80,y=260)
+	ArcBtn.place(x=20,y=260)
+	#reloadButton.place(x=170,y=260)
+	#def reloadClicked(event):
+	#	record()
 	def Arc_clicked(event):
 		import tkinter as tk
 		window = tk.Tk()
@@ -972,6 +982,7 @@ if __name__ == '__main__':
 
 		button.bind("<Button-1>", add_clicked)
 	ArcBtn.bind("<Button-1>", Arc_clicked)
+	#reloadButton.bind("<Button-1>", reloadClicked)
 
 ################################### END OF PHRASE AND KEY FEATURE ##############################################################
 
