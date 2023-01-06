@@ -1,0 +1,18 @@
+pip install SpeechRecognition  
+pip install pyttsx3  
+pip install playsound  
+pip install Pillow  
+pip install pyscreenshot  
+pip install pynput  
+pip install psutil  
+pip install opencv-contrib-python  
+pip install opencv  
+pip install wikipedia  
+pip install webbrowser [Available with installer]  
+pip install bs4  
+pip install smtplib [Available with installer]  
+pip install youtube-search-python  
+pip install wmi  
+pip install geopy  
+pip install googletrans==3.1.0a0  
+pip install python-dotenv
