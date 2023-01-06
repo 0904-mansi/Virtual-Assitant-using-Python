@@ -191,11 +191,6 @@ python main.py
 - Open GeekForGeeks  
 - Open GitHub  
 - Open CodeChef  
-
-## Game  
-- Let's play a game  
-  - Rock Paper Scissor  
-  - Online Games  
   
 ## Smart Reply  
 - How are you?  
