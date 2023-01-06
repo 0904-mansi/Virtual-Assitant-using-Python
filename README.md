@@ -217,4 +217,4 @@ pyaudio not installing
 (USE PYTHON <= 3.8 WHICH SUPPORTS ALL THE LIBRARIES)
 Raise an Issue ticket if you have any other problems  <br><br><br>
 
-Made with ❤️ & Team ![Archit Chawda](https://github.com/archit27-uo) and ![Satyam Jain](https://github.com/satyam298)
+Made with ❤️ by Team ![Archit Chawda](https://github.com/archit27-uo) , ![Mansi Mishra](https://github.com/0904-mansi) and ![Satyam Jain](https://github.com/satyam298)
