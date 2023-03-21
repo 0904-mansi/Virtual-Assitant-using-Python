@@ -4,6 +4,7 @@ import playsound
 from tkinter import *
 from threading import Thread
 
+# function is for starting timer for given time
 def startTimer(query):
 	nums = re.findall(r'[0-9]+', query)
 	time = 0
@@ -19,7 +20,7 @@ def startTimer(query):
 	sleep(time)
 	Thread(target=timer).start()
 	playsound.playsound("assets/audios/Timer.mp3")
-
+# this will open new window containing info like timer staqrted and up
 def timer():
 	root = Tk()
 	root.title("Timer")
