@@ -3,11 +3,17 @@ import time
 import subprocess
 from pynput.keyboard import Key, Controller
 import psutil
+from difflib import get_close_matches
+import json
+from random import choice
+import webbrowser
 
+# defining a class
 class SystemTasks:
 	def __init__(self):
 		self.keyboard = Controller()
-
+	
+	#this function will open apps
 	def openApp(self, appName):
 		appName = appName.replace('paint', 'mspaint')
 		appName = appName.replace('wordpad', 'write')
@@ -16,26 +22,28 @@ class SystemTasks:
 		try: subprocess.Popen('C:\\Windows\\System32\\'+appName[5:]+'.exe')
 		except: pass
 
+	# this function will write typed content
 	def write(self, text):
 		text = text[5:]
 		for char in text:
 			self.keyboard.type(char)
 			time.sleep(0.02)
-
+	# this will select all content
 	def select(self):
 		self.keyboard.press(Key.ctrl)
 		self.keyboard.press('a')
 		self.keyboard.release('a')
 		self.keyboard.release(Key.ctrl)
-
+	
+	# this will press enter button
 	def hitEnter(self):
 		self.keyboard.press(Key.enter)
 		self.keyboard.release(Key.enter)
-
+	#this will delete or backspace
 	def delete(self):
 		self.keyboard.press(Key.backspace)
 		self.keyboard.release(Key.enter)
-
+	#function for saving files 
 	def save(self, text):
 		if "don't" in text:
 			self.keyboard.press(Key.right)
@@ -49,19 +57,19 @@ class SystemTasks:
 class TabOpt:
 	def __init__(self):
 		self.keyboard = Controller()
-
+	# for switching tabs
 	def switchTab(self):
 		self.keyboard.press(Key.ctrl)
 		self.keyboard.press(Key.tab)
 		self.keyboard.release(Key.tab)
 		self.keyboard.release(Key.ctrl)
-
+	#for closing tab
 	def closeTab(self):
 		self.keyboard.press(Key.ctrl)
 		self.keyboard.press('w')
 		self.keyboard.release('w')
 		self.keyboard.release(Key.ctrl)
-
+	#for new tab open
 	def newTab(self):
 		self.keyboard.press(Key.ctrl)
 		self.keyboard.press('n')
@@ -72,16 +80,16 @@ class TabOpt:
 class WindowOpt:
 	def __init__(self):
 		self.keyboard = Controller()
-
+	# open window
 	def openWindow(self):
 		self.maximizeWindow()
-	
+	# close window
 	def closeWindow(self):
 		self.keyboard.press(Key.alt_l)
 		self.keyboard.press(Key.f4)
 		self.keyboard.release(Key.f4)
 		self.keyboard.release(Key.alt_l)
-	
+	# minimize window
 	def minimizeWindow(self):
 		for i in range(2):
 			self.keyboard.press(Key.cmd)
@@ -89,13 +97,13 @@ class WindowOpt:
 			self.keyboard.release(Key.down)
 			self.keyboard.release(Key.cmd)
 			time.sleep(0.05)
-	
+	# maximize window
 	def maximizeWindow(self):
 		self.keyboard.press(Key.cmd)
 		self.keyboard.press(Key.up)
 		self.keyboard.release(Key.up)
 		self.keyboard.release(Key.cmd)
-
+	# move window
 	def moveWindow(self, operation):
 		self.keyboard.press(Key.cmd)
 
@@ -112,25 +120,25 @@ class WindowOpt:
 			self.keyboard.press(Key.up)
 			self.keyboard.release(Key.up)
 		self.keyboard.release(Key.cmd)
-
+	# for switc h windows
 	def switchWindow(self):
 		self.keyboard.press(Key.alt_l)
 		self.keyboard.press(Key.tab)
 		self.keyboard.release(Key.tab)
 		self.keyboard.release(Key.alt_l)
 		
-
+	# taking ss
 	def takeScreenShot(self):
 		from random import randint
 		im = ImageGrab.grab()
 		im.save(f'Files and Document/ss_{randint(1, 100)}.jpg')
-
+# function for checking command
 def isContain(text, lst):
 	for word in lst:
 		if word in text:
 			return True
 	return False
-
+# calling functions
 def Win_Opt(operation):
 	w = WindowOpt()
 	if isContain(operation, ['open']):
@@ -239,10 +247,7 @@ def OSHandler(query):
 		return batteryInfo()
 
 
-from difflib import get_close_matches
-import json
-from random import choice
-import webbrowser
+## new feature for creating own shortcuts
 
 data = json.load(open('assets/websites.json', encoding='utf-8'))
 
