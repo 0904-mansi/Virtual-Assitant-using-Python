@@ -204,6 +204,9 @@ python main.py
 - Thank You  
 - I'm sorry  
 
+# Preview
+[Video_2023_03_22-1.webm](https://user-images.githubusercontent.com/81081105/226884996-2119c9b6-ca77-4d48-8317-9c030d6c6c2d.webm)
+
 
 ## Common Installation Issues  
 ```
